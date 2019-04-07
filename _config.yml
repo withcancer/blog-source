@@ -5,15 +5,15 @@
 # Site
 title: 没城
 subtitle: 别怨社会太黑暗，只因你我没担当
-description: God is in his heaven . All's right with the world
-keywords: 反动 血腥 色情 暴力
+description: God Is In His Heaven. All's Right With The World
+keywords: 反动,血腥,色情,暴力,变态,凶杀
 author: withcancer
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://withcancer.github.io/
+url: https://withcancer.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -78,4 +78,5 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/withcancer/withcancer.github.io
