@@ -4,7 +4,6 @@ date: 2017-2-10
 categories:
 - 后端
 - 区块链
-- nodejs
 tags:
 - 后端
 - 区块链
@@ -14,6 +13,8 @@ tags:
 阿里云除了ECS外，今年还推出了轻量应用服务器。主要用来部署个人应用，小网站后台，我也申请了一个来玩，三个月135元。
 
 大多数云主机，比如aws，都是没有图形画面的，在网页控制台只能使用简陋的交互式终端来操作。
+<!-- more -->
+{% asset_img 2.png 简陋的终端 %}
 
 我的目的是在GUI下，用VSCode调试区块链程序-[Ebookcoin（亿书）](https://github.com/Ebookcoin/ebookcoin)。
 从一无所有的云服务器中建立调试环境，主要有以下几个步骤：
@@ -58,6 +59,9 @@ vncserver
 vncserver -geometry 1280x1024 -depth 16:1
 ```
 vncviewer重新连接，xfce4就出来了。
+
+{% asset_img 1.png xfce4桌面 %}
+
 xfce4默认情况下，两个问题的解决方法：
 1. `Tab`失效：修改快捷键设置-Switch window for same application
 2. `sudo`时消除`unable to resolve host`，在host内增加阿里云主机名，也就是那一长串英文
@@ -72,6 +76,7 @@ VSCode无法启动时，根据github讨论的结果，可以使用如下方法�
 sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/share/code/libxcb.so.1
 sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/share/code/libxcb.so.1.1.0
 ```
+{% asset_img 3.png vscode无法启动的解决讨论 %}
 ## 调试ebookcoin
 现在，基本工具已经具备，开始安装调试工具。
 1. 安装nodejs到桌面文件夹apps中

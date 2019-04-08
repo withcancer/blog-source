@@ -1,19 +1,23 @@
 ---
 title: 用Docker和angular5及Koa创建MEAN应用
-date: 2016-6-19
+date: 2017-12-18
 categories:
-- 前端
-- angular
+- 全栈
+- MEAN
 tags:
-- 前端
-- js
+- 全栈
+- mongodb
+- mongoose
+- nodejs
 - angular
 ---
+
 首先要确保angualr-cli和docker都已经安装完毕。
 ## client
 创建一个新的angular-cli项目mean-docker/angular-client。
 
 在angular-client目录下，创建一个Dockerfile，并写入如下内容
+<!-- more -->
 ```
 FROM node:8
 # 创建工作目录

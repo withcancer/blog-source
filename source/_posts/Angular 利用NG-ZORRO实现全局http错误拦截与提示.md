@@ -1,5 +1,5 @@
 ---
-title: Angular 利用NG-ZORRO实现全局http错误拦截与提示
+title: Angular 利用ng-zorro实现全局http错误拦截与提示
 date: 2016-5-23
 categories:
 - 前端
@@ -7,13 +7,14 @@ categories:
 tags:
 - 前端
 - angular
-- NG-ZORRO
+- ng-zorro
 ---
 # 拦截http错误
 
 http全局错误的拦截可以采用先扩展``Http``类，重写请求方法后发出错误，之后实现``ErrorHandler``类来实现。
 下面是部分关键代码：
-``` javascript
+<!-- more -->
+``` typescript
 export class InterceptedHttp extends Http {
 
     constructor(
@@ -52,7 +53,7 @@ export class InterceptedHttp extends Http {
 }
 ```
 以上是一个简单的http请求拦截器，它可以改写请求参数，改写请求头部，还有一种写法是实现``HttpInterceptor``接口（angular5新添加)。
-``` javascript
+``` typescript
 export class MyHttpInterceptor implements HttpInterceptor {
 constructor() { }
 
@@ -78,7 +79,7 @@ return next.handle(authReq)
 }
 ```
 接下来实现ErrorHandler类，它可以捕捉各种类型的错误，包括Http请求错误。
-``` javascript
+``` typescript
 export class CustomErrorHandler implements ErrorHandler {
 
     constructor( @Inject(NotificationService) private notificationService: NotificationService) {
@@ -112,7 +113,7 @@ export class CustomErrorHandler implements ErrorHandler {
 捕捉到错误信息以后，需要通知某个服务来显示消息，利用nzMessageService将其显示出来，nzMessageService显示时需要视图载体，这里采用AppComponent作为载体。
 
 为ErrorHandler添加错误通知功能
-``` javascript
+``` typescript
     handleError(error: any): void {
         let msg = this.httpErrorHandler(error.rejection || error);
         this.notificationService.error(msg);
@@ -122,7 +123,7 @@ notificationService必须类似于EventEmitter一样，收到消息后自动发�
 
 Message的模型如下:
 
-``` javascript
+``` typescript
 export class Message{
     type: string;
     message: string;
@@ -132,8 +133,6 @@ export class Message{
     }
 }
 
-```
-``` javascript
 export class NotificationService {
     public message: Subject<Message> = new Subject<Message>();
 
@@ -146,7 +145,7 @@ export class NotificationService {
 }
 ```
 之后，只要在AppComponent中订阅Message，就可以在前台进行提示了！
-```
+``` typescript
 export class AppComponent implements OnInit {
   title = 'app';
   constructor(private notification: NotificationService,
@@ -160,13 +159,12 @@ export class AppComponent implements OnInit {
   }
 }
 ```
-最后，别忘了注册以上这几个服务到AppModule中。
-```
+最后，注册以上这几个服务到AppModule中。
+``` typescript
 export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions): Http {
   return new InterceptedHttp(xhrBackend, requestOptions);
 }
 
-...
 providers: [
     {
       provide: Http,

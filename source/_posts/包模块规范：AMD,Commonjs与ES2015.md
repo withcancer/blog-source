@@ -3,11 +3,10 @@ title: 包模块规范：AMD,Commonjs与ES2015
 date: 2016-5-19
 categories:
 - 前端
-- js
-- es6
+- ES6
 tags:
 - 前端
-- js
+- javascript
 - amd
 - commonjs
 ---
@@ -15,7 +14,7 @@ tags:
 翻译自[amdjs官方wiki](https://github.com/amdjs/amdjs-api/wiki/AMD)
 
 异步模块定义（AMD）API指定了定义模块的机制，以便模块和它的依赖项可以异步加载。这特别适合于浏览器环境，但其中模块的同步加载会导致性能、可用性、调试和跨域访问问题。实现了AMD的，是requirejs。
-
+<!-- more -->
 ### API定义
 define(id?, dependencies?, factory);
 

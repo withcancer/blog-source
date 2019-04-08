@@ -3,7 +3,6 @@ title: ES6中的新集合类型-map, weakMap,set,weakSet
 date: 2016-5-16
 categories:
 - 前端
-- js
 - ES6
 tags:
 - 前端
@@ -15,6 +14,7 @@ tags:
 > Map objects are collections of key/value pairs where both the keys and values may be arbitrary ECMAScript language values. A distinct key value may only occur in one key/value pair within the Map's collection. Distinct key values are discriminated using the SameValueZero comparison algorithm.
 
 `Map`对象是key-value的集合，key和value可以是es的任意类型。key值具有唯一性，分辨一个key是不是唯一的，使用的是严格比较法。
+<!-- more -->
 
 > The Map constructor is designed to be subclassable. It may be used as the value in an extends clause of a class definition. Subclass constructors that intend to inherit the specified  Map behaviour must include a super call to the Map constructor to create and initialize the subclass instance with the internal state necessary to support the Map.prototype built-in methods.
 

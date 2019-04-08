@@ -3,7 +3,6 @@ title: ES6中的Promise
 date: 2016-4-28
 categories:
 - 前端
-- js
 - ES6
 tags:
 - 前端
@@ -18,6 +17,7 @@ Promise 对象是一个代理对象（代理一个值），被代理的值在Pro
 - pending: 初始状态，既不是成功，也不是失败状态。
 - fulfilled: 意味着操作成功完成。
 - rejected: 意味着操作失败。
+<!-- more -->
 ## 方法
 ``` javascript
 Promise.all(iterable)

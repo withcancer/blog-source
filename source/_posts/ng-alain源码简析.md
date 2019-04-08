@@ -1,15 +1,14 @@
 ---
-title: ng-alain源码解析
-date: 2016-5-24
+title: ng-alain源码简析
+date: 2016-5-20
 categories:
 - 前端
 - angular
 tags:
 - 前端
-- angular
-- NG-ALAIN
+- 源码
+- ng-alain
 ---
-
 # 外围配置
 
 ## Dockerfile
@@ -49,6 +48,7 @@ COPY --from=builder /ng-alain/dist /usr/share/nginx/html
 
 CMD [ "nginx", "-g", "daemon off;"]
 ```
+<!-- more -->
 ## nginx配置
 配置了端口80，虚拟主机名localhost，主目录/usr/share/nginx/html，首页index.html，错误处理画面50x.html
 ``` config

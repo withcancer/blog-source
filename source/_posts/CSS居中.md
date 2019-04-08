@@ -1,6 +1,6 @@
 ---
 title: CSS居中
-date: 2016-2-3
+date: 2016-2-5
 categories:
 - 前端
 - CSS
@@ -8,9 +8,12 @@ tags:
 - 前端
 - CSS
 ---
+
 # 水平居中
 ## 块级元素（宽度固定）
 有宽度的前提下，可以设置这个块级元素的左右margin为auto来实现水平居中。
+
+<!-- more -->
 ``` html
 <!DOCTYPE HTML>
 <html>
@@ -39,6 +42,7 @@ tags:
 </body>
 </html>
 ```
+{% asset_img 1.png 块级元素水平居中 %}
 ## 块级元素（宽度不定）
 没有指定宽度时，可以通过``translateX``属性来实现。
 ``` html
@@ -60,6 +64,7 @@ transform: translateX(-50%);
 </body>
 </html>
 ```
+{% asset_img 2.png 块级元素水平居中（宽度未定） %}
 ## 行内元素
 块级元素可以通过设置``display:inline-block``来转换成行内元素来达到相同的效果。
 设置父容器的``text-align``为``center``即可实现行内元素居中。
@@ -79,6 +84,7 @@ transform: translateX(-50%);
 </body>
 </html>
 ```
+{% asset_img 3.png 行内元素水平居中（宽度未定）%}
 ## flex布局
 设置父容器的flex布局即可实现各类元素水平居中。
 ``` html
@@ -145,6 +151,7 @@ display:table-cell;
 </body>
 </html>
 ```
+{% asset_img 4.png 行内元素垂直居中 %}
 ## 块级元素(知道高度)
 有高度的前提下，可以设置这个块级元素的绝对定位实现垂直居中。
 ``` html
@@ -172,7 +179,7 @@ margin-top: -50px;
 ```
 ## 块级元素（高度未知）
 不知道高度时，与水平对齐同理，可以使用``translateY``来实现垂直居中。
-```
+``` html
 <!DOCTYPE HTML>
 <html>
 <body>
@@ -188,12 +195,13 @@ tranform:translateY(-50%);
 </style>
 <div class="container">
 <div class="inner">
-这种方法是最不推荐的方法，因为transform属性在各个浏览器中的表现行为不一致
+这种方法是最不推荐的方法，因为transform属性在各个浏览器中的表现行为不一致，所以会出现一些兼容性的问题，只有当已知用户浏览器时才推荐使用。
 </div>
 </div>
 </body>
 </html>
 ```
+{% asset_img 5.png 块级元素垂直居中（高度未知） %}
 ## flex布局
 设置父容器的flex布局即可实现各类元素垂直居中。
 ``` html

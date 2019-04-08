@@ -3,7 +3,6 @@ title: ES6的迭代协议-Sympol.iterator
 date: 2016-5-20
 categories:
 - 前端
-- js
 - ES6
 tags:
 - 前端
@@ -13,9 +12,11 @@ tags:
 - `Array`和`Map`及`Set`,`String`有内建的可迭代协议，从chrome上可以看出这一点，所以可以使用各类迭代方法对其中的成员进行访问。
 - 如果要让没有迭代功能的对象具有迭代性，需要实现`Sympol.iterator`方法。
 
+<!-- more -->
+
 有以下方式来实现可迭代。
 1. 传统方式,缺点是无法使用`for-of`，只能用`next()`进行迭代
-```
+``` javascript
 function Iterator(array){
     var nextIndex = 0;
     
@@ -35,7 +36,7 @@ console.log(it.next().value); // 'bar'
 console.log(it.next().done);  // true
 ```
 2. Sympol.iterator方式，在这种方式下，没有办法使用类似next()方法来进行迭代
-```
+``` javascript
 const Iterator = {
     [Symbol.iterator]() {
         let step = 0;
@@ -67,7 +68,7 @@ for(let c of Iterator){
 Array.from(Iterator);     
 ```
 3. Generator形式，与es6配合最为紧密，支持方法最多
-```
+``` javascript
 function* Iterator(array){
     var nextIndex = 0;
     
@@ -90,7 +91,7 @@ for(let c of gen){
 Array.from(gen);
 ```
 另外还有一种无限迭代方式
-```
+``` javascript
 function* idMaker(){
     var index = 0;
     while(true)

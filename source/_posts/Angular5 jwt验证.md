@@ -2,14 +2,16 @@
 title: Angular5 jwt验证
 date: 2016-5-21
 categories:
-- 前端
+- 全栈
 - angular
 tags:
-- 前端
+- 全栈
 - angular
+- jwt
 ---
 首先写一个简单的bootstrap的登陆表单。
 新建loginComponent，然后在hmtl里写:
+<!-- more -->
 ``` html
 <div class="col-md-6 col-md-offset-3">
   <h2>Login</h2>
@@ -100,7 +102,7 @@ async function login(ctx) {
 module.exports = { login };
 ```
 koa-jwt添加进来以后，引入公钥，然后排除login api：
-``` 
+``` typescript
 jwt({ secret: secret }).unless({ path: [/^\/api\/login/] })
 ```
 这样，当前台发出请求时，就会得到签名过的token，为了统一处理，写一个共通处理的httpinterceptor，这里面用到了``ngx-notify``。

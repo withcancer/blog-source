@@ -1,9 +1,8 @@
 ---
-title: ES6中Object常用API-Object.assign，Object.create， Object.defineProperty
+title: ES6中Object常用API-Object.assign,Object.create,Object.defineProperty
 date: 2016-5-10
 categories:
 - 前端
-- js
 - ES6
 tags:
 - 前端
@@ -13,7 +12,7 @@ tags:
 ## Object.assign(target, ...sources)
 如果目标对象中的属性具有相同的键，则属性将被源中的属性覆盖。后来的源的属性将类似地覆盖早先的属性。`String`类型和`Symbol`类型的属性都会被拷贝。`Object.assign` 会跳过那些值为`null`或`undefined`的源对象。
 - 用法：
-```
+``` javascript
 var o1 = { a: 1 };
 var o2 = { b: 2 };
 var o3 = { c: 3 };
@@ -22,10 +21,12 @@ var obj = Object.assign(o1, o2, o3);
 console.log(obj); // { a: 1, b: 2, c: 3 }
 console.log(o1);  // { a: 1, b: 2, c: 3 }, 注意目标对象自身也会改变。
 ```
+
+<!-- more -->
 - 避免浅拷贝
 
 `Object.assign()`拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值。
-```
+``` javascript
 let obj1 = { a: 0 , b: { c: 0}};
 let obj2 = Object.assign({}, obj1);
 
@@ -35,7 +36,7 @@ console.log(obj2) // {a:0, b: {c:1}}
 ```
 如果要进行深度克隆，就要先创建一个源对象的副本，再进行assign。
 最简单的写法可能是这样：
-```
+``` javascript
 function clone(origin) {
   let originProto = Object.getPrototypeOf(origin);
   return Object.assign(Object.create(originProto), origin);
@@ -60,7 +61,7 @@ function clone(origin) {
       2. Perform ? Set(to, nextKey, propValue, true).
 6. Return to.
 
-```
+``` javascript
 // 省略前面的对source的判断
 // function写法
 Object.assign || function (target) {
@@ -105,7 +106,7 @@ Object.defineProperty(Object, "assign", {
 ## Object.create(proto, propertiesObject)
 - 用法
 使用`Object.create`可以很方便的解决继承问题，也可以用`extends`语法糖解决。
-```
+``` javascript
 let Parent = {
     sayWord: function() {
         return this.word;
@@ -131,7 +132,7 @@ console.log(child.sayWord()); // foo
 4. Set obj.[[Prototype]] to proto.
 5. Set obj.[[Extensible]] to true.
 6. Return obj.
-```
+``` javascript
 // 来自MDN
 if (typeof Object.create !== "function") {
     Object.create = function (proto, propertiesObject) {
@@ -153,7 +154,7 @@ if (typeof Object.create !== "function") {
 
 ## Object.defineProperty((bj, prop, descriptor)
 - 用法
-```
+``` javascript
 Object.defineProperty(obj, "key", {
   enumerable: false,
   configurable: false,

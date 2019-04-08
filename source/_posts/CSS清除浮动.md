@@ -9,7 +9,7 @@ tags:
 - CSS
 ---
 首先定义如下几个div。
-``` html
+``` HTML
 <!DOCTYPE HTML>
 <html>
 <body>
@@ -25,14 +25,15 @@ tags:
 </body>
 </html>
 ```
+<!-- more -->
 此时可以发现，两个``div``元素行内对齐排列，加了浮动之后的元素脱离了标准流，所以父容器出现了高度塌陷。
-![图片1](CSS清除浮动/1.jpg)
+{% asset_img 1.jpg 图1 %}
 清除浮动的方法有以下几个：
 - 增加一个空的``div``元素
 ``` html
 <div style="clear:both"></div>
 ```
-![图片2](CSS清除浮动/2.jpg)
+{% asset_img 2.jpg 图2 %}
 - 为父级元素增加``overflow:hidden``属性。
 ``` css
 .container{
@@ -40,7 +41,7 @@ tags:
   overflow: hidden;
 }
 ```
-![图片3](CSS清除浮动/3.jpg)
+{% asset_img 3.jpg 图3 %}
 - 为父级元素增加伪元素。
 ``` css
 .clearfix:before,
@@ -55,4 +56,4 @@ tags:
     *zoom: 1;
 }
 ```
-![图片4](CSS清除浮动/4.jpg)
+{% asset_img 4.jpg 图4 %}

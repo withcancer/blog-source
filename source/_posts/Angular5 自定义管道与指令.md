@@ -12,6 +12,7 @@ Angular有很多内置指令与管道，但有时候还是要添加自定义的�
 # 自定义指令
 可以通过``ng g d``选项来创建一个新的指令。
 例如可以定义一个``highlight``指令，并可以在其中应用``@HostListener,@HostBingding,@Input``等装饰器。
+<!-- more -->
 ``` typescript
 @Directive({
   selector: '[highlight]'
